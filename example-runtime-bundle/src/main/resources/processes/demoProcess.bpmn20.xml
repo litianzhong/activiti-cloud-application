@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef" xmlns:modeler="http://activiti.com/modeler" modeler:version="1.0en" modeler:exportDateTime="20170630121657099" modeler:modelId="31031" modeler:modelVersion="1" modeler:modelLastUpdated="1498821235111">
+  <process id="demo-process" name="demo-process" isExecutable="true">
+    <startEvent id="StartEvent_1" name="Request received">
+      <outgoing>SequenceFlow_0mm61kr</outgoing>
+    </startEvent>
+    <sequenceFlow id="SequenceFlow_0mm61kr" sourceRef="StartEvent_1" targetRef="UserTask_0hwz542" />
+    <intermediateThrowEvent id="IntermediateThrowEvent_0jw4ba7" name="Provider Admin Approved">
+      <incoming>SequenceFlow_0gnceep</incoming>
+      <outgoing>SequenceFlow_1idjv1z</outgoing>
+    </intermediateThrowEvent>
+    <sequenceFlow id="SequenceFlow_0gnceep" sourceRef="UserTask_0hwz542" targetRef="IntermediateThrowEvent_0jw4ba7" />
+    <sequenceFlow id="SequenceFlow_1idjv1z" sourceRef="IntermediateThrowEvent_0jw4ba7" targetRef="UserTask_1m43xlj" />
+    <intermediateThrowEvent id="IntermediateThrowEvent_0625b9q" name="Platform Business Admin Approved">
+      <incoming>SequenceFlow_10uis7t</incoming>
+      <outgoing>SequenceFlow_0oca1zb</outgoing>
+    </intermediateThrowEvent>
+    <sequenceFlow id="SequenceFlow_10uis7t" sourceRef="UserTask_1m43xlj" targetRef="IntermediateThrowEvent_0625b9q" />
+    <endEvent id="EndEvent_1alakss" name="Request Approved">
+      <incoming>SequenceFlow_0oca1zb</incoming>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_0oca1zb" sourceRef="IntermediateThrowEvent_0625b9q" targetRef="EndEvent_1alakss" />
+    <userTask id="UserTask_0hwz542" name="Provider Admin Approve Request" activiti:candidateGroups="Provider Admin">
+      <incoming>SequenceFlow_0mm61kr</incoming>
+      <outgoing>SequenceFlow_0gnceep</outgoing>
+    </userTask>
+    <userTask id="UserTask_1m43xlj" name="Platform Business Admin Approve Request" activiti:candidateGroups="Platform Business Admin">
+      <incoming>SequenceFlow_1idjv1z</incoming>
+      <outgoing>SequenceFlow_10uis7t</outgoing>
+    </userTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process-a0a7ea9e-f643-4f29-bf04-4f4383a926d3">
+    <bpmndi:BPMNPlane id="BPMNPlane_process-a0a7ea9e-f643-4f29-bf04-4f4383a926d3" bpmnElement="process-a0a7ea9e-f643-4f29-bf04-4f4383a926d3">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="412" y="240" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_IntermediateThrowEvent_0jw4ba7" bpmnElement="IntermediateThrowEvent_0jw4ba7">
+        <omgdc:Bounds x="646" y="240" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_IntermediateThrowEvent_0625b9q" bpmnElement="IntermediateThrowEvent_0625b9q">
+        <omgdc:Bounds x="878" y="240" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1alakss" bpmnElement="EndEvent_1alakss">
+        <omgdc:Bounds x="962" y="240" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_0hwz542" bpmnElement="UserTask_0hwz542">
+        <omgdc:Bounds x="498" y="218" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_1m43xlj" bpmnElement="UserTask_1m43xlj">
+        <omgdc:Bounds x="730" y="218" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_0mm61kr" bpmnElement="SequenceFlow_0mm61kr">
+        <omgdi:waypoint x="448" y="258" />
+        <omgdi:waypoint x="498" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_0gnceep" bpmnElement="SequenceFlow_0gnceep">
+        <omgdi:waypoint x="598" y="258" />
+        <omgdi:waypoint x="646" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1idjv1z" bpmnElement="SequenceFlow_1idjv1z">
+        <omgdi:waypoint x="682" y="258" />
+        <omgdi:waypoint x="730" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10uis7t" bpmnElement="SequenceFlow_10uis7t">
+        <omgdi:waypoint x="830" y="258" />
+        <omgdi:waypoint x="878" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_0oca1zb" bpmnElement="SequenceFlow_0oca1zb">
+        <omgdi:waypoint x="914" y="258" />
+        <omgdi:waypoint x="962" y="258" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
